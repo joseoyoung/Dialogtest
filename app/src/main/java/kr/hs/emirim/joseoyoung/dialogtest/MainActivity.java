@@ -32,13 +32,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 butDialog.setText(itemArr[i]);
             }
         });*/
-        //라디오 버튼 목록
+        /*//라디오 버튼 목록
         dialog.setSingleChoiceItems(itemArr, 0, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
                 butDialog.setText(itemArr[i]);
             }
+        });*/
+        //체크 박스 목록
+        //선택 여부 배열
+        boolean[] checkedItems={true,false,true,false};
+        dialog.setMultiChoiceItems(itemArr, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i, boolean b) {
+                if(b)
+                    butDialog.setText(itemArr[i]);
+            }
         });
+
         //dialog.setPositiveButton("OK", null);
         dialog.show();
     }
